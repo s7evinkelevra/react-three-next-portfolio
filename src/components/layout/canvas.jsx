@@ -10,7 +10,7 @@ const LControl = () => {
   useEffect(() => {
     if (control.current) {
       const domElement = dom.current
-      const originalTouchAction = domElement.style['touch-action'] 
+      const originalTouchAction = domElement.style['touch-action']
       domElement.style['touch-action'] = 'none'
 
       return () => {
@@ -32,6 +32,7 @@ const LCanvas = ({ children }) => {
         top: 0,
       }}
       onCreated={(state) => state.events.connect(dom.current)}
+      camera={{ position: [-30, 0, 40], fov: 55 }}
     >
       <LControl />
       <Preload all />
