@@ -32,9 +32,10 @@ const LCanvas = ({ children }) => {
         top: 0,
       }}
       onCreated={(state) => state.events.connect(dom.current)}
-      camera={{ position: [-30, 0, 40], fov: 55 }}
+      camera={{ position: [-30, 15, 40], fov: 55 }}
+      dpr={2}
     >
-      <LControl />
+      {/* <LControl /> */}
       <Preload all />
       {children}
     </Canvas>

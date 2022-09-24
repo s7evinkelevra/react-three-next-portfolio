@@ -6,7 +6,7 @@
   * {
     box-sizing: border-box;
   }
-  
+
   html,
   body,
   #__next {
@@ -15,5 +15,16 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    /* pointer-events: none; */
+  }
+
+  body {
+    position: fixed;
+    overflow: hidden;
+    overscroll-behavior: none;
+    background-color: #101010;
+    background: radial-gradient(circle at bottom center, #C1C1C1 0%, #F0F0F0 80%);
+    font-family: "Inter var", sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 }

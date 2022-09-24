@@ -2,8 +2,9 @@ import useStore from '@/helpers/store'
 import { useFrame } from '@react-three/fiber'
 import { useTexture, useGLTF, useHelper, ContactShadows, Environment } from '@react-three/drei'
 import { Suspense, useRef, useState } from 'react'
-import { MacbookComponent } from './Macbook'
 import { DirectionalLightHelper } from 'three'
+import Models_A1 from './Models/Models_A1'
+import Models_A2 from './Models/Models_A2'
 
 const MenuComponent = ({ route }) => {
   const router = useStore((s) => s.router)
@@ -32,8 +33,9 @@ const MenuComponent = ({ route }) => {
       {/* <gridHelper /> */}
       <Suspense fallback={null}>
         <group position={[0, 5, 0]}>
-          <MacbookComponent />
-
+          {/* <MacbookComponent /> */}
+          {/* <Models_A1 /> */}
+          <Models_A2 />
         </group>
         <Environment preset="city" />
       </Suspense>

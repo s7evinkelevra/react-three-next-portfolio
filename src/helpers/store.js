@@ -1,10 +1,14 @@
 import create from 'zustand'
 import shallow from 'zustand/shallow'
+import React from 'react'
 
 const useStoreImpl = create(() => {
   return {
     router: null,
     dom: null,
+    overlay: React.createRef(),
+    caption: React.createRef(),
+    scroll: React.createRef(0)
   }
 })
 

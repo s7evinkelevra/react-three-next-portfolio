@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 // Step 5 - delete Instructions components
 import Instructions from '@/components/dom/Instructions'
-import { MacbookComponent } from '@/components/canvas/Macbook'
+import { MacbookComponent } from '@/components/canvas/Models/Macbook'
 // import Shader from '@/components/canvas/Shader/Shader'
 
 // Dynamic import is used to prevent a payload when the website start that will include threejs r3f etc..
@@ -12,14 +12,16 @@ const Shader = dynamic(() => import('@/components/canvas/Shader/Shader'), {
   ssr: false,
 })
 
-const MenuComponent = dynamic(() => import('@/components/canvas/Menu'))
+const MenuComponent = dynamic(() => import('@/components/canvas/Menu'), {
+  ssr: false
+})
 
 // dom components goes here
 const Page = (props) => {
   console.log(props);
   return (
     <>
-      {/* <Instructions /> */}
+      <Instructions />
     </>
   )
 }
@@ -28,8 +30,8 @@ const Page = (props) => {
 // It will receive same props as Page component (from getStaticProps, etc.)
 Page.r3f = (props) => (
   <>
-    {/* <Shader /> */}
-    <MenuComponent route="/box" />
+    <Shader />
+    {/* <MenuComponent route="/box" /> */}
   </>
 )
 
