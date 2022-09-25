@@ -9,7 +9,7 @@ import { useFrame, useThree } from "@react-three/fiber"
 import useStore from "@/helpers/store"
 import useWindowDimensions from "@/helpers/useWindowDimensions"
 
-export default function Model(props) {
+export default function Model({ iframeSrc, ...props }) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('models/animation_4_comp.glb')
   const { actions } = useAnimations(animations, group)
@@ -18,6 +18,15 @@ export default function Model(props) {
   const macbookGroup = useRef();
   const iphoneGroup = useRef();
 
+  const screenWidth = 334;
+  const screenHeight = 216;
+  const screenScale = 0.2;
+
+  const phoneScreenWidth = 90;
+  const phoneScreenHeight = 190;
+  const phoneModelScale = 4;
+  const phoneScreenScale = 1 / 5;
+  const phoneDistanceFactor = 2;
 
   const { width: viewportWidth } = useWindowDimensions();
 
@@ -25,44 +34,40 @@ export default function Model(props) {
 
   useFrame((state) => {
     actions["CameraAction"].time = THREE.MathUtils.lerp(actions["CameraAction"].time, actions["CameraAction"].getClip().duration * scroll.current, 0.05)
+
+    const t = state.clock.getElapsedTime()
+    macbookGroup.current.rotation.x = THREE.MathUtils.lerp(macbookGroup.current.rotation.x, Math.cos(t / 2) / 20, 0.1)
+    macbookGroup.current.rotation.y = THREE.MathUtils.lerp(macbookGroup.current.rotation.y, Math.sin(t / 4) / 20, 0.1)
+    macbookGroup.current.rotation.z = THREE.MathUtils.lerp(macbookGroup.current.rotation.z, Math.sin(t / 8) / 20, 0.1)
   })
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene">
-        <group name="screenflip" position={[0, -0.2, 0.36]} rotation={[0.04, 0, 0]}>
-          <group name="screen" position={[0, 2.96, -0.13]} rotation={[Math.PI / 2, 0, 0]}>
-            <mesh name="Cube008" geometry={nodes.Cube008.geometry} material={materials.aluminium} />
-            <mesh name="Cube008_1" geometry={nodes.Cube008_1.geometry} material={materials['matte.001']} />
-            <mesh name="Cube008_2" geometry={nodes.Cube008_2.geometry} material={materials['screen.001']} />
+      <group name="Scene" >
+        <group ref={macbookGroup} name="macbook" >
+          <group name="screenflip" position={[0, -0.2, 0.36]} rotation={[0.04, 0, 0]}>
+            <group name="screen" position={[0, 2.96, -0.13]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh name="Cube008" geometry={nodes.Cube008.geometry} material={materials.aluminium} />
+              <mesh name="Cube008_1" geometry={nodes.Cube008_1.geometry} material={materials['matte.001']} />
+              <mesh name="Cube008_2" geometry={nodes.Cube008_2.geometry} material={materials['screen.001']}>
+                <Html style={{ width: screenWidth, height: screenHeight }} className='overflow-hidden p-0 bg-white' rotation-x={-Math.PI / 2} position={viewportWidth < 800 ? [0, 0.2, -0.09] : [0, 0.05, -0.09]} zIndexRange={[10, 100]} transform occlude>
+                  <iframe src={iframeSrc} style={{ transform: `scale(${screenScale})`, width: screenWidth / screenScale, height: screenHeight / screenScale }} className='origin-top-left'>
+
+                  </iframe>
+                </Html>
+              </mesh>
+            </group>
           </group>
+
+          <mesh name="keyboard" geometry={nodes.keyboard.geometry} material={materials.keys} position={[1.79, -1.41, 3.15]} rotation={[0.42, 0, 0]} />
+          <group name="base" position={[0, -1.48, 3.06]} rotation={[0.42, 0, 0]}>
+            <mesh name="Cube002" geometry={nodes.Cube002.geometry} material={materials.aluminium} />
+            <mesh name="Cube002_1" geometry={nodes.Cube002_1.geometry} material={materials.trackpad} />
+          </group>
+          <mesh name="touchbar" geometry={nodes.touchbar.geometry} material={materials.touchbar} position={[0, -0.51, 1.09]} rotation={[0.42, 0, 0]} />
         </group>
 
-        <group name="Camera" position={[11.73, 7.98, 10.98]} rotation={[1.24, 0.33, -0.76]}>
-          <PerspectiveCamera makeDefault far={100} near={0.1} fov={45} rotation={[-Math.PI / 2, 0, 0]}>
-            <directionalLight
-              castShadow
-              position={[10, 20, 15]}
-              shadow-camera-right={8}
-              shadow-camera-top={8}
-              shadow-camera-left={-8}
-              shadow-camera-bottom={-8}
-              shadow-mapSize-width={1024}
-              shadow-mapSize-height={1024}
-              intensity={2}
-              shadow-bias={-0.0001}
-            />
-          </PerspectiveCamera>
-
-        </group>
-
-        <mesh name="keyboard" geometry={nodes.keyboard.geometry} material={materials.keys} position={[1.79, -1.41, 3.15]} rotation={[0.42, 0, 0]} />
-        <group name="base" position={[0, -1.48, 3.06]} rotation={[0.42, 0, 0]}>
-          <mesh name="Cube002" geometry={nodes.Cube002.geometry} material={materials.aluminium} />
-          <mesh name="Cube002_1" geometry={nodes.Cube002_1.geometry} material={materials.trackpad} />
-        </group>
-        <mesh name="touchbar" geometry={nodes.touchbar.geometry} material={materials.touchbar} position={[0, -0.51, 1.09]} rotation={[0.42, 0, 0]} />
-        <group name="Frame" position={[0, 3, -3.36]} rotation={[1.67, 0, 0]} scale={4}>
+        <group name="Frame" position={[0, 3, -3.36]} rotation={[1.67, 0, 0]} scale={phoneModelScale}>
           <mesh name="Plane" geometry={nodes.Plane.geometry} material={materials.Frame} />
           <mesh name="Plane_1" geometry={nodes.Plane_1.geometry} material={materials.Frame2} />
           <mesh name="Plane_2" geometry={nodes.Plane_2.geometry} material={materials.Mic} />
@@ -74,7 +79,13 @@ export default function Model(props) {
             <mesh name="Plane002_1" geometry={nodes.Plane002_1.geometry} material={materials.Body} />
             <mesh name="Plane002_2" geometry={nodes.Plane002_2.geometry} material={materials.Bezel} />
             <mesh name="Plane002_3" geometry={nodes.Plane002_3.geometry} material={materials.Wallpaper} />
-            <mesh name="Plane002_4" geometry={nodes.Plane002_4.geometry} material={materials['Camera Glass']} />
+            <mesh name="Plane002_4" geometry={nodes.Plane002_4.geometry} material={materials['Camera Glass']}>
+              <Html style={{ width: phoneScreenWidth, height: phoneScreenHeight }} className='overflow-hidden p-0 ' distanceFactor={phoneDistanceFactor} rotation-y={-Math.PI} rotation-x={-Math.PI / 2} position={viewportWidth < 800 ? [0.09, -0.02526, -0.005] : [0, -0.02526, 0]} zIndexRange={[10, 100]} transform occlude >
+                <iframe src={iframeSrc} style={{ transform: `scale(${phoneScreenScale})`, borderRadius: "40px", width: phoneScreenWidth / phoneScreenScale, height: phoneScreenHeight / phoneScreenScale }} className='origin-top-left'>
+
+                </iframe>
+              </Html>
+            </mesh>
             <mesh name="Plane002_5" geometry={nodes.Plane002_5.geometry} material={materials.Lens} />
             <mesh name="Plane002_6" geometry={nodes.Plane002_6.geometry} material={materials['Material.002']} />
           </group>
@@ -99,6 +110,25 @@ export default function Model(props) {
           <mesh name="Camera004" geometry={nodes.Camera004.geometry} material={materials['Material.003']} />
           <mesh name="Circle003" geometry={nodes.Circle003.geometry} material={materials.Frame} />
         </group>
+
+        <group name="Camera" position={[11.73, 7.98, 10.98]} rotation={[1.24, 0.33, -0.76]}>
+          <PerspectiveCamera makeDefault far={100} near={0.1} fov={45} rotation={[-Math.PI / 2, 0, 0]}>
+            <directionalLight
+              castShadow
+              position={[10, 20, 15]}
+              shadow-camera-right={8}
+              shadow-camera-top={8}
+              shadow-camera-left={-8}
+              shadow-camera-bottom={-8}
+              shadow-mapSize-width={1024}
+              shadow-mapSize-height={1024}
+              intensity={2}
+              shadow-bias={-0.0001}
+            />
+          </PerspectiveCamera>
+
+        </group>
+
       </group>
     </group>
   )

@@ -35,12 +35,12 @@ const MenuComponent = ({ route }) => {
         <group position={[0, 5, 0]}>
           {/* <MacbookComponent /> */}
           {/* <Models_A1 /> */}
-          <Models_A2 />
+          <Models_A2 iframeSrc={"https://berufseinstieg-bundeswehr.de"} />
         </group>
         <Environment preset="city" />
       </Suspense>
 
-      <ContactShadows position={[0, -4.5, 0]} scale={60} blur={2} far={8.5} />
+      <ContactShadows /* frames={1} */ position={[0, -4.5, 0]} scale={60} blur={2} far={8.5} />
 
     </>
   )
