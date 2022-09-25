@@ -34,6 +34,7 @@ const LCanvas = ({ children }) => {
       onCreated={(state) => state.events.connect(dom.current)}
       camera={{ position: [-30, 15, 40], fov: 55 }}
       dpr={2}
+      invalidateFrameloop
     >
       {/* <LControl /> */}
       <Preload all />
