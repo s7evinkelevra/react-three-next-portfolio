@@ -20,7 +20,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     <div style={{ height: "100vh"/* , opacity: 0 */ }}>
       <div className={styles.dot}>
         <h1>headphone</h1>
-        Headphones are a pair of small loudspeaker drivers worn on or around the head over a user's ears.
+        Headphones are a pair of small loudspeaker drivers worn on or around the head over a users ears.
       </div>
     </div>
     <div style={{ height: "100vh" }}>
@@ -59,4 +59,5 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
   </div>
 ))
 
+Overlay.displayName = "Overlay";
 export default Overlay
