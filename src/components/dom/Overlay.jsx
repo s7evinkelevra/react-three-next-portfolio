@@ -25,7 +25,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     </div>
     <div style={{ height: "100vh" }}>
       <div className={styles.dot}>
-        <h1>rocket</h1>A rocket (from Italian: rocchetto, lit. 'bobbin/spool')[nb 1][1] is a projectile that spacecraft, aircraft or other
+        <h1>rocket</h1>A rocket  is a projectile that spacecraft, aircraft or other
         vehicle use to obtain thrust from a rocket engine.
       </div>
     </div>
