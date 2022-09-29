@@ -2,7 +2,6 @@ import useStore from '@/helpers/store'
 import { useFrame } from '@react-three/fiber'
 import { useTexture, useGLTF, useHelper, ContactShadows, Environment, ScrollControls, Scroll } from '@react-three/drei'
 import { Suspense, useRef, useState } from 'react'
-import { MacbookComponent } from './Macbook'
 import { DirectionalLightHelper } from 'three'
 import Overlay from '../dom/Overlay'
 
