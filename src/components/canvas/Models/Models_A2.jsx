@@ -11,12 +11,13 @@ import useWindowDimensions from "@/helpers/useWindowDimensions"
 
 export default function Model({ iframeSrc, ...props }) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('models/animation_4_comp.glb')
+  const { nodes, materials, animations } = useGLTF('models/animation_5_comp.glb')
   const { actions } = useAnimations(animations, group)
 
   const scroll = useStore(state => state.scroll)
   const macbookGroup = useRef();
   const iphoneGroup = useRef();
+  const hlaGroup = useRef();
 
   const screenWidth = 334;
   const screenHeight = 216;
@@ -39,6 +40,8 @@ export default function Model({ iframeSrc, ...props }) {
     macbookGroup.current.rotation.x = THREE.MathUtils.lerp(macbookGroup.current.rotation.x, Math.cos(t / 2) / 20, 0.1)
     macbookGroup.current.rotation.y = THREE.MathUtils.lerp(macbookGroup.current.rotation.y, Math.sin(t / 4) / 20, 0.1)
     macbookGroup.current.rotation.z = THREE.MathUtils.lerp(macbookGroup.current.rotation.z, Math.sin(t / 8) / 20, 0.1)
+
+    hlaGroup.current.rotation.z += 0.0004
   })
 
   return (
@@ -67,7 +70,7 @@ export default function Model({ iframeSrc, ...props }) {
           <mesh name="touchbar" geometry={nodes.touchbar.geometry} material={materials.touchbar} position={[0, -0.51, 1.09]} rotation={[0.42, 0, 0]} />
         </group>
 
-        <group name="Frame" position={[0, 3, -3.36]} rotation={[1.67, 0, 0]} scale={phoneModelScale}>
+        <group ref={iphoneGroup} name="Frame" position={[0, 3, -3.36]} rotation={[1.67, 0, 0]} scale={phoneModelScale}>
           <mesh name="Plane" geometry={nodes.Plane.geometry} material={materials.Frame} />
           <mesh name="Plane_1" geometry={nodes.Plane_1.geometry} material={materials.Frame2} />
           <mesh name="Plane_2" geometry={nodes.Plane_2.geometry} material={materials.Mic} />
@@ -109,6 +112,11 @@ export default function Model({ iframeSrc, ...props }) {
           </group>
           <mesh name="Camera004" geometry={nodes.Camera004.geometry} material={materials['Material.003']} />
           <mesh name="Circle003" geometry={nodes.Circle003.geometry} material={materials.Frame} />
+        </group>
+
+        <group ref={hlaGroup} name="Shape_IndexedFaceSet" position={[2.34, 1.9, -26.6]} rotation={[2.15, -0.47, 3.03]} scale={0.15}>
+          <mesh name="Shape_IndexedFaceSet001" geometry={nodes.Shape_IndexedFaceSet001.geometry} material={materials['hla.001']} />
+          <mesh name="Shape_IndexedFaceSet001_1" geometry={nodes.Shape_IndexedFaceSet001_1.geometry} material={materials['peptide.001']} />
         </group>
 
         <group name="Camera" position={[11.73, 7.98, 10.98]} rotation={[1.24, 0.33, -0.76]}>

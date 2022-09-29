@@ -17,19 +17,19 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
       </div>
     </div>
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "100vh"/* , opacity: 0 */ }}>
       <div className={styles.dot}>
         <h1>headphone</h1>
         Headphones are a pair of small loudspeaker drivers worn on or around the head over a user's ears.
       </div>
     </div>
-    {/* <div style={{ height: "200vh" }}>
+    <div style={{ height: "100vh" }}>
       <div className={styles.dot}>
         <h1>rocket</h1>A rocket (from Italian: rocchetto, lit. 'bobbin/spool')[nb 1][1] is a projectile that spacecraft, aircraft or other
         vehicle use to obtain thrust from a rocket engine.
       </div>
     </div>
-    <div style={{ height: "200vh" }}>
+    {/* <div style={{ height: "200vh" }}>
       <div className={styles.dot}>
         <h1>turbine</h1>A turbine (/ˈtɜːrbaɪn/ or /ˈtɜːrbɪn/) (from the Greek τύρβη, tyrbē, or Latin turbo, meaning vortex)[1][2] is a
         rotary mechanical device that extracts energy from a fluid flow and converts it into useful work.
