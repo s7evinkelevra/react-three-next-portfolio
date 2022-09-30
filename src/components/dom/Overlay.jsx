@@ -1,5 +1,27 @@
+import Link from "next/link"
 import React, { forwardRef } from "react"
 import styles from './Overlay.module.css'
+
+
+const Section = ({ height, children }) => {
+
+  return (
+    <div style={{ height }}>
+      <div className={styles.section}>
+        <div className={styles.section_box}>
+          {children}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const MenuLink = ({ href, children }) => (
+  <Link href={href}>
+    <a className={styles.menu_link}>{children}</a>
+  </Link>
+)
+
 
 const Overlay = forwardRef(({ caption, scroll }, ref) => (
   <div
@@ -11,13 +33,45 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     }}
     className={styles.scroll}
   >
-    <div style={{ height: "100vh" }}>
+
+
+    <Section height="100vh">
+      <h1>Jan Lüdemann</h1>
+      Developing Web-based solutions since 2018. Enthusiast programmer for way longer.
+    </Section>
+
+    <Section height="100vh">
+      <h1>Web</h1>
+      Text unter der Überschrift lul
+    </Section>
+
+    <Section height="100vh">
+      <h1>Non-Web</h1>
+      Text unter der Überschrift lul
+    </Section>
+
+
+    <div className={styles.fixed_menu_container}>
+      <div className={styles.fixed_menu}>
+        <MenuLink href="/portfolio">Portfolio</MenuLink>
+        <MenuLink href="/about">About Me</MenuLink>
+        <MenuLink href="/contact">Contact</MenuLink>
+
+      </div>
+    </div>
+
+
+    {/*     <div style={{ height: "100vh" }}>
       <div className={styles.dot}>
         <h1>Jan Lüdemann</h1>
         Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
       </div>
     </div>
-    <div style={{ height: "100vh"/* , opacity: 0 */ }}>
+
+
+
+
+    <div style={{ height: "100vh" }}>
       <div className={styles.dot}>
         <h1>headphone</h1>
         Headphones are a pair of small loudspeaker drivers worn on or around the head over a users ears.
@@ -28,7 +82,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         <h1>rocket</h1>A rocket  is a projectile that spacecraft, aircraft or other
         vehicle use to obtain thrust from a rocket engine.
       </div>
-    </div>
+    </div> */}
     {/* <div style={{ height: "200vh" }}>
       <div className={styles.dot}>
         <h1>turbine</h1>A turbine (/ˈtɜːrbaɪn/ or /ˈtɜːrbɪn/) (from the Greek τύρβη, tyrbē, or Latin turbo, meaning vortex)[1][2] is a
