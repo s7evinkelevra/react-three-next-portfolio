@@ -34,7 +34,7 @@ export default function Model({ iframeSrc, ...props }) {
   useEffect(() => void (actions["CameraAction"].play().paused = true), [])
 
   useFrame((state) => {
-    actions["CameraAction"].time = THREE.MathUtils.lerp(actions["CameraAction"].time, actions["CameraAction"].getClip().duration * scroll.current, 0.05)
+    actions["CameraAction"].time = THREE.MathUtils.lerp(actions["CameraAction"].time, actions["CameraAction"].getClip().duration * scroll.current, 0.03)
 
     const t = state.clock.getElapsedTime()
     macbookGroup.current.rotation.x = THREE.MathUtils.lerp(macbookGroup.current.rotation.x, Math.cos(t / 2) / 20, 0.1)
