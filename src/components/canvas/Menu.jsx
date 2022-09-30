@@ -6,6 +6,30 @@ import { DirectionalLightHelper } from 'three'
 import Models_A1 from './Models/Models_A1'
 import Models_A2 from './Models/Models_A2'
 
+
+const sites = [
+  {
+    name: "DBV Hauptvertretung Antony Kisters",
+    url: "https://berufseinstieg-bundeswehr.de",
+    letter: "A"
+  },
+  {
+    name: "Praxis Dr. Wiechert",
+    url: "https://dr-wiechert.com",
+    letter: "W"
+  },
+  {
+    name: "Newport-Optik",
+    url: "https://newport-optik.de",
+    letter: "N"
+  },
+  {
+    name: "Oralchirurgie Westerwald Praxis Dr. Rütters",
+    url: "https://oralchirurgie-westerwald.de/",
+    letter: "O"
+  },
+]
+
 const MenuComponent = ({ route }) => {
   const router = useStore((s) => s.router)
   // This reference will give us direct access to the THREE.Mesh object
@@ -14,6 +38,9 @@ const MenuComponent = ({ route }) => {
   const light = useRef(null)
   // Set up state for the hovered and active state
   const [hovered, setHover] = useState(false)
+
+  const currentSiteIndex = 1
+
 
   // Subscribe this component to the render-loop, rotate the mesh every frame
   /*   useFrame((state, delta) =>
@@ -35,7 +62,7 @@ const MenuComponent = ({ route }) => {
         <group position={[0, 5, 0]}>
           {/* <MacbookComponent /> */}
           {/* <Models_A1 /> */}
-          <Models_A2 iframeSrc={"https://berufseinstieg-bundeswehr.de"} />
+          <Models_A2 iframeSrc={sites[currentSiteIndex].url} />
         </group>
         <Environment preset="city" />
       </Suspense>
