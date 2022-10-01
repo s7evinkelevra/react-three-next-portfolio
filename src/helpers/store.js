@@ -4,7 +4,6 @@ import React from 'react'
 
 const useStoreImpl = create(() => {
   return {
-    router: null,
     dom: null,
     overlay: React.createRef(),
     caption: React.createRef(),
