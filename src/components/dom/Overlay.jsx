@@ -36,8 +36,8 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
 
 
     <Section height="100vh">
-      <h1>Hi, Im Jan!</h1>
-      Im a developer mostly focussed on web/react, with &gt;30 completed professional projects since 2018.
+      <h1>Hi, I&apos;m Jan!</h1>
+      I&apos;m a developer mostly focussed on web/react, with &gt;30 completed professional projects since 2018.
       Scroll to take a quick tour of what i do, or see the portfolio for a comprehensive overview.
     </Section>
 
@@ -108,7 +108,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         pronunciation: [ˈt͡sɛpəliːn]) who pioneered rigid airship development at the beginning of the 20th century.
       </div>
     </div> */}
-    <span class={styles.caption} ref={caption}>
+    <span className={styles.caption} ref={caption}>
       0.00
     </span>
   </div>
