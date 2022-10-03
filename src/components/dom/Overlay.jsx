@@ -36,17 +36,18 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
 
 
     <Section height="100vh">
-      <h1>Jan Lüdemann</h1>
-      Developing Web-based solutions since 2018. Enthusiast programmer for way longer.
+      <h1>Hi, I'm Jan!</h1>
+      I'm a developer mostly focussed on web/react, with &gt;30 completed professional projects since 2018.
+      Scroll to take a quick tour of what i do, or see the portfolio for a comprehensive overview.
     </Section>
 
     <Section height="100vh">
-      <h1>Web</h1>
-      Text unter der Überschrift lul
+      <h1>Websites</h1>
+      It all started with wordpress websites for local businesses, like a b and c.
     </Section>
 
     <Section height="100vh">
-      <h1>Non-Web</h1>
+      <h1>Simulation in Biology</h1>
       Text unter der Überschrift lul
     </Section>
 
