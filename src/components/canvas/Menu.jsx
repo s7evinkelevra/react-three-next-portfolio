@@ -5,6 +5,7 @@ import { Suspense, useRef, useState } from 'react'
 import { DirectionalLightHelper } from 'three'
 import Models_A1 from './Models/Models_A1'
 import Models_A2 from './Models/Models_A2'
+import { useEffect } from 'react'
 
 
 const sites = [
@@ -28,10 +29,19 @@ const sites = [
     url: "https://oralchirurgie-westerwald.de/",
     letter: "O"
   },
+  {
+    name: "Spizen-Prävention",
+    url: "https://spitzen-praevention.com/neue-gesundheitskultur/",
+    letter: "S"
+  },
+  {
+    name: "Fenster Konfigurator",
+    url: "https://fenster.luedemann2.de",
+    letter: "K"
+  }
 ]
 
-const MenuComponent = ({ route }) => {
-  const router = useStore((s) => s.router)
+const MenuComponent = (props) => {
   // This reference will give us direct access to the THREE.Mesh object
   const mesh = useRef(null)
 
@@ -39,7 +49,19 @@ const MenuComponent = ({ route }) => {
   // Set up state for the hovered and active state
   const [hovered, setHover] = useState(false)
 
-  const currentSiteIndex = 1
+  const [currentSiteIndex, setCurrentSiteIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (currentSiteIndex >= (sites.lenght - 1)) {
+        setCurrentSiteIndex(0)
+      } else {
+        setCurrentSiteIndex(currentSiteIndex + 1)
+      }
+    }, 10000)
+
+    return () => clearTimeout(timer);
+  }, [])
 
 
   // Subscribe this component to the render-loop, rotate the mesh every frame
