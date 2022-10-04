@@ -30,11 +30,6 @@ const sites = [
     letter: "O"
   },
   {
-    name: "Spizen-Prävention",
-    url: "https://spitzen-praevention.com/neue-gesundheitskultur/",
-    letter: "S"
-  },
-  {
     name: "Fenster Konfigurator",
     url: "https://fenster.luedemann2.de",
     letter: "K"
@@ -53,12 +48,8 @@ const MenuComponent = (props) => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      if (currentSiteIndex >= (sites.lenght - 1)) {
-        setCurrentSiteIndex(0)
-      } else {
-        setCurrentSiteIndex(currentSiteIndex + 1)
-      }
-    }, 10000)
+      setCurrentSiteIndex(prevIndex => (prevIndex + 1) % (sites.length - 1))
+    }, 15000)
 
     return () => clearTimeout(timer);
   }, [])
