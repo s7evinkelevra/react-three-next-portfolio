@@ -1,14 +1,17 @@
-import useStore from '@/helpers/store'
-import { useFrame } from '@react-three/fiber'
-import { useTexture, useGLTF, useHelper, ContactShadows, Environment, Image, Stage } from '@react-three/drei'
-import { Suspense, useRef, useState } from 'react'
-import { DirectionalLightHelper } from 'three'
-import Models_A1 from './Models/Models_A1'
+import { useEffect, Suspense, useState } from 'react'
+import { ContactShadows, Environment } from '@react-three/drei'
+
 import Models_A2 from './Models/Models_A2'
-import { useEffect } from 'react'
+
+import useStore, { setState } from '@/helpers/store'
 
 
 const sites = [
+  {
+    name: "Luedemann2 Digitaler Serivce",
+    url: "http://luedemann2.de/",
+    letter: "L"
+  },
   {
     name: "DBV Hauptvertretung Antony Kisters",
     url: "https://berufseinstieg-bundeswehr.de",
@@ -27,15 +30,21 @@ const sites = [
 ]
 
 const MenuScene = (props) => {
-  const [currentSiteIndex, setCurrentSiteIndex] = useState(0)
+  const [currentSiteIndex, setCurrentSiteIndex] = useState(1)
+  const scroll = useStore(state => state.scroll)
 
+  // reset scroll on component mount
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSiteIndex(prevIndex => (prevIndex + 1) % (sites.length - 1))
-    }, 15000)
-
-    return () => clearTimeout(timer);
+    scroll.current = 0
   }, [])
+
+  /*   useEffect(() => {
+      const timer = setInterval(() => {
+        setCurrentSiteIndex(prevIndex => (prevIndex + 1) % (sites.length - 1))
+      }, 15000)
+  
+      return () => clearTimeout(timer);
+    }, []) */
 
 
   // Subscribe this component to the render-loop, rotate the mesh every frame
@@ -61,7 +70,7 @@ const MenuScene = (props) => {
         <Environment preset="city" />
       </Suspense>
 
-      <ContactShadows /* frames={1} */ position={[0, -4.5, 0]} scale={60} blur={2} far={8.5} />
+      <ContactShadows frames={10} position={[0, -4.5, 0]} scale={60} blur={2} far={8.5} />
 
     </>
   )
