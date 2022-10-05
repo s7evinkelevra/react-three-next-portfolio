@@ -1,46 +1,51 @@
+import React, { useRef } from 'react';
 import dynamic from 'next/dynamic'
-// Step 5 - delete Instructions components
-import Instructions from '@/components/dom/Instructions'
-import { MacbookComponent } from '@/components/canvas/Models/Macbook'
-// import Shader from '@/components/canvas/Shader/Shader'
 
-// Dynamic import is used to prevent a payload when the website start that will include threejs r3f etc..
-// WARNING ! errors might get obfuscated by using dynamic import.
-// If something goes wrong go back to a static import to show the error.
-// https://github.com/pmndrs/react-three-next/issues/49
+import Overlay from '@/components/dom/Overlay';
+import useStore from "@/helpers/store"
+
+
+/* 
 const Shader = dynamic(() => import('@/components/canvas/Shader/Shader'), {
   ssr: false,
 })
+ */
 
-const MenuComponent = dynamic(() => import('@/components/canvas/Menu'), {
+const MenuScene = dynamic(() => import('@/components/canvas/MenuScene'), {
   ssr: false
 })
 
 // dom components goes here
 const Page = (props) => {
-  console.log(props);
+  const overlay = useRef();
+  const scroll = useStore(state => state.scroll)
+
+
   return (
     <>
-      <Instructions />
+      <Overlay ref={overlay} scroll={scroll} />
     </>
   )
 }
-
 // canvas components goes here
 // It will receive same props as Page component (from getStaticProps, etc.)
-Page.r3f = (props) => (
-  <>
-    <Shader />
-    {/* <MenuComponent route="/box" /> */}
-  </>
-)
+Page.r3f = (props) => {
+
+  return (
+    <>
+      {/* <Shader /> */}
+      <MenuScene />
+
+    </>
+  )
+}
 
 export default Page
 
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Index',
+      title: 'Home',
     },
   }
 }
