@@ -1,6 +1,6 @@
 import useStore from '@/helpers/store'
 import { useFrame } from '@react-three/fiber'
-import { useTexture, useGLTF, useHelper, ContactShadows, Environment } from '@react-three/drei'
+import { useTexture, useGLTF, useHelper, ContactShadows, Environment, Image, Stage } from '@react-three/drei'
 import { Suspense, useRef, useState } from 'react'
 import { DirectionalLightHelper } from 'three'
 import Models_A1 from './Models/Models_A1'
@@ -15,11 +15,6 @@ const sites = [
     letter: "A"
   },
   {
-    name: "Praxis Dr. Wiechert",
-    url: "https://dr-wiechert.com",
-    letter: "W"
-  },
-  {
     name: "Newport-Optik",
     url: "https://newport-optik.de",
     letter: "N"
@@ -28,22 +23,10 @@ const sites = [
     name: "Oralchirurgie Westerwald Praxis Dr. Rütters",
     url: "https://oralchirurgie-westerwald.de/",
     letter: "O"
-  },
-  {
-    name: "Fenster Konfigurator",
-    url: "https://fenster.luedemann2.de",
-    letter: "K"
   }
 ]
 
-const MenuComponent = (props) => {
-  // This reference will give us direct access to the THREE.Mesh object
-  const mesh = useRef(null)
-
-  const light = useRef(null)
-  // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false)
-
+const MenuScene = (props) => {
   const [currentSiteIndex, setCurrentSiteIndex] = useState(0)
 
   useEffect(() => {
@@ -61,8 +44,6 @@ const MenuComponent = (props) => {
         ? (mesh.current.rotation.y = mesh.current.rotation.x += 0.01)
         : null
     ) */
-
-  useHelper(light, DirectionalLightHelper, 0.5, "red")
 
   // Return the view, these are regular Threejs elements expressed in JSX
   return (
@@ -85,4 +66,4 @@ const MenuComponent = (props) => {
     </>
   )
 }
-export default MenuComponent
+export default MenuScene
