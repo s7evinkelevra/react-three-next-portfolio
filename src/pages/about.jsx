@@ -7,7 +7,7 @@ const Page = (props) => {
 
 
   return (
-    <div className='container mx-auto'>
+    <div className=''>
       <About />
       <Menu width={"600px"} />
     </div>
