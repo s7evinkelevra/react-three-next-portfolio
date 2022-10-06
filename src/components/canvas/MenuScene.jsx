@@ -26,6 +26,21 @@ const sites = [
     name: "Oralchirurgie Westerwald Praxis Dr. Rütters",
     url: "https://oralchirurgie-westerwald.de/",
     letter: "O"
+  },
+  {
+    name: "Fenster Shop Artur Schatz",
+    url: "http://bwkz2f.myraidbox.de/product/iglo-5-classic/",
+    letter: "F"
+  },
+  {
+    name: "Dr. med. Dirk Wiechert",
+    url: "https://dr-wiechert.com/",
+    letter: "D"
+  },
+  {
+    name: "QMB Glasmachers",
+    url: "http://qmb-dienstleistungen.de/",
+    letter: "Q"
   }
 ]
 
@@ -36,6 +51,7 @@ const MenuScene = (props) => {
   // reset scroll on component mount
   useEffect(() => {
     scroll.current = 0
+    setCurrentSiteIndex(Math.floor(Math.random() * sites.length))
   }, [])
 
   /*   useEffect(() => {
