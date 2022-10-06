@@ -1,16 +1,33 @@
 ---
 title: Conditioner
-date: 'August 4, 2021'
-description: Learn how to create and use functions
-thumbnailUrl: 'projects/hello.jpg'
-tags: ['functions', 'javascript']
-category: "Website"
+date: '2021'
+tags: ['MSSQL', 'mySQL', 'nodejs', 'react', 'tailwindCSS']
+category: "Fullstack"
 ---
 
-# Diesdas
-YEEAG
+## Background
+Dem Kunden gehört eine größere Privatarztpraxis mit eigenem Labor. Labordaten aus dem internen Labor und mehreren externen sollen vereinheitlicht werden. Aus diesen internen und externen Laborwerten Berichte schreiben ist sehr zeitaufwändig und soll (teil-)automatisiert werden. Die Berichte bestehen aus Textbausteinen; welcher Textbaustein ausgewählt wird, ist von teilweise recht komplexen Bedingungen abhängig. Die Berichte sollen automatisch mit den aktuellen Laborwerten und den korrekten Textbausteinen befüllt werden. 
 
-## AHHH
-ha
 
-<Link href="/">Testlink</Link>
+## Setup
+nodeJS + express als Server. Anbindung an die Microsoft SQL Datenbank der Praxissoftware per knex, um die Stammdaten der Patienten zu erhalten ("read-only"). Paralleler Aufbau einer eigenen mySQL Datenbank für die Labordaten mit prisma ORM für nodeJS. Findet praxisintern in einem privaten Netzwerk statt, daher keine Authentifizierung. 
+
+
+## Components
+### Dateneingabe der Labordaten
+- Manuelle Eingabe der Daten
+- Parsen von externen Laborberichten (nicht implementiert)
+
+### Textbausteine und Bedingungen
+Textbausteine und deren Abhängigkeiten können in einem Graphen definiert werden, wo alle Patientendaten zur Verfügung stehen und mit beliebigen Operatoren untersucht und getestet werden können. Dieser wird geparsed und evaluiert, um zu bestimmen, welcher Textbaustein ausgewählt werden soll. Es können, zumindest theoretisch, alle möglichen logischen Zusammenhänge abgebildet werden.
+
+<img src="/projects/gifs/conditioner_comp.gif" width="100%" height="auto" />
+
+
+<SyntaxHighlighter language="javascript">
+  {`
+    const doStuff = () => {
+      return console.log('hey')
+    }
+  `}
+</SyntaxHighlighter>
