@@ -15,12 +15,12 @@ const MenuLink = ({ href, children }) => (
 const Menu = ({ width }) => {
   return (
     <div className={styles.fixed_menu_container} style={{ width }}>
-      <div className={styles.fixed_menu}>
+      <nav className={styles.fixed_menu}>
         <MenuLink href="/">Home</MenuLink>
         <MenuLink href="/portfolio">Portfolio</MenuLink>
         <MenuLink href="/about">About Me</MenuLink>
 
-      </div>
+      </nav>
     </div>
 
   );
