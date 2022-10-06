@@ -44,7 +44,7 @@ export async function getStaticProps() {
 
   const projects = [];
 
-  for (var filename of files) {
+  for (let filename of files) {
     const markdownWithMeta = fs.readFileSync(path.join('projects', filename), 'utf-8');
     const { data: frontMatter, content } = matter(markdownWithMeta);
 
