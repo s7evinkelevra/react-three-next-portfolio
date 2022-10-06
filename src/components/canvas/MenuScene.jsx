@@ -9,7 +9,7 @@ import useStore, { setState } from '@/helpers/store'
 const sites = [
   {
     name: "Luedemann2 Digitaler Serivce",
-    url: "http://luedemann2.de/",
+    url: "https://luedemann2.de/",
     letter: "L"
   },
   {
@@ -27,11 +27,11 @@ const sites = [
     url: "https://oralchirurgie-westerwald.de/",
     letter: "O"
   },
-  {
-    name: "Fenster Shop Artur Schatz",
-    url: "http://bwkz2f.myraidbox.de/product/iglo-5-classic/",
-    letter: "F"
-  },
+  /*   {
+      name: "Fenster Shop Artur Schatz",
+      url: "http://bwkz2f.myraidbox.de/product/iglo-5-classic/",
+      letter: "F"
+    }, */
   {
     name: "Dr. med. Dirk Wiechert",
     url: "https://dr-wiechert.com/",
@@ -39,7 +39,7 @@ const sites = [
   },
   {
     name: "QMB Glasmachers",
-    url: "http://qmb-dienstleistungen.de/",
+    url: "https://qmb-dienstleistungen.de/",
     letter: "Q"
   }
 ]
