@@ -2,9 +2,14 @@ import React from 'react';
 import _ from 'lodash';
 import { MDXRemote } from 'next-mdx-remote'
 
-import Link from 'next/link';
+import { FaGithub } from 'react-icons/fa'
+import { AiOutlineCodepen } from 'react-icons/ai'
+
 import styles from './Portfolio.module.css'
+
 import Image from 'next/image';
+import Link from 'next/link';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
 const Portfolio = ({ projects, currentProjectSlug }) => {
 
@@ -39,9 +44,23 @@ const Portfolio = ({ projects, currentProjectSlug }) => {
       </div>
 
       <div className={styles.content}>
-        <div className={styles.mdx_wrapper}>
-          {currentProjectSlug && <MDXRemote {...currentProject.mdxSource} components={{ Link, Image }} />}
-        </div>
+        {currentProjectSlug && currentProject && <>
+          <div className={styles.content_header}>
+            <h1>{currentProject.title}</h1>
+            <div className={styles.content_meta}>
+              <span>{currentProject.date}</span>
+              {/* <span>{currentProject.category}</span> */}
+              <span className={styles.meta_tags}>{currentProject?.tags?.length > 0 && currentProject.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}</span>
+              {currentProject?.githubLink && <span><a target="_blank" href={currentProject.githubLink}><FaGithub /></a></span>}
+              {currentProject?.publicLink && <span><a target="_blank" href={currentProject.publicLink}><AiOutlineCodepen /></a></span>}
+            </div>
+          </div>
+          <div className={styles.mdx_wrapper}>
+            <MDXRemote {...currentProject.mdxSource} components={{ Link, Image, SyntaxHighlighter }} />
+          </div>
+        </>}
       </div>
     </div>
 
