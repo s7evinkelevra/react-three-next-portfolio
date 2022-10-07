@@ -59,6 +59,11 @@
   padding-left: 10px;
 }
 
+.external_link svg {
+  display: inline-block;
+  vertical-align: text-top;
+}
+
 
 @media screen and (min-width: 600px) and (max-width: 1250px) {
   .container {
@@ -94,6 +99,7 @@
 .content_meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .meta_tags {
@@ -105,7 +111,8 @@
 }
 
 .mdx_wrapper {
-  padding: 10px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.664);
 }
 
 .mdx_wrapper p,
@@ -119,13 +126,18 @@
 }
 
 .mdx_wrapper ul {
-  margin-left: 5px;
-  list-style: inside disc;
+  margin-left: 25px;
+  list-style: outside disc;
 }
 
 .mdx_wrapper a {
   color: black;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
+}
+
+.mdx_wrapper blockquote {
+  border-left: 4px solid black;
+  padding-left: 8px;
 }
 
 .mdx_wrapper h1 {
