@@ -65,13 +65,13 @@
 }
 
 
-@media screen and (min-width: 600px) and (max-width: 1250px) {
+/* @media screen and (min-width: 600px) and (max-width: 1250px) {
   .container {
     flex-wrap: nowrap;
   }
-}
+} */
 
-@media only screen and (min-width: 1250px) {
+@media only screen and (min-width: 1430px) {
   .box {
     height: 100%;
   }
