@@ -19,6 +19,8 @@ const Menu = ({ width }) => {
         <MenuLink href="/">Home</MenuLink>
         <MenuLink href="/portfolio">Portfolio</MenuLink>
         <MenuLink href="/about">About Me</MenuLink>
+        {/* <MenuLink href="/impressum">Impressum</MenuLink>
+        <MenuLink href="/datenschutz">Datenschutz</MenuLink> */}
 
       </nav>
     </div>
