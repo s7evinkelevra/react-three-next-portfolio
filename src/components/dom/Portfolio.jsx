@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import _ from 'lodash';
 import { MDXRemote } from 'next-mdx-remote'
 
@@ -6,6 +6,7 @@ import { FaGithub } from 'react-icons/fa'
 import { AiOutlineCodepen } from 'react-icons/ai'
 import { RiExternalLinkLine } from 'react-icons/ri'
 
+import { getWindowDimensions } from '@/helpers/useWindowDimensions';
 import styles from './Portfolio.module.css'
 
 import Image from 'next/image';
@@ -13,6 +14,14 @@ import Link from 'next/link';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 const Portfolio = ({ projects, currentProjectSlug }) => {
+  const scrollToRef = useRef(null);
+
+  const handleProjectClick = () => {
+    const { width: viewportWidth } = getWindowDimensions()
+    if (scrollToRef?.current && viewportWidth < 1430) {
+      scrollToRef.current.scrollIntoView({ inline: "end", block: "start", behavior: "smooth" })
+    }
+  }
 
   const enabledProjects = _.filter(projects, project => !(project?.disabled));
 
@@ -37,7 +46,7 @@ const Portfolio = ({ projects, currentProjectSlug }) => {
                       <li key={project.slug} className={styles.project_item}>
                         {project.linkOnly ?
                           <a className={styles.external_link} target="_blank" rel="noreferrer" href={project.publicLink}>{project.title}<RiExternalLinkLine /></a> :
-                          <Link href={`/portfolio?project=${project.slug}`}><a>{project.title}</a></Link>}
+                          <Link href={`/portfolio?project=${project.slug}`}><a onClick={handleProjectClick}>{project.title}</a></Link>}
                       </li>
                     ))
                   }
@@ -48,7 +57,7 @@ const Portfolio = ({ projects, currentProjectSlug }) => {
         </div>
       </div>
 
-      <div className={styles.content}>
+      <div ref={scrollToRef} className={styles.content}>
         {currentProjectSlug && currentProject && <>
           <div className={styles.content_header}>
             <h1>{currentProject.title}</h1>
