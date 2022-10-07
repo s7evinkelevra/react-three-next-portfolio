@@ -57,13 +57,13 @@
   font-size: 1.2em;
 }
 
-.project_item a {
+.project_item {
   transform: padding;
   transition: 0.1s;
   transition-timing-function: ease-in-out;
 }
 
-.project_item a:hover {
+.project_item:hover {
   padding-left: 10px;
 }
 
@@ -114,6 +114,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+
 }
 
 .meta_tags span {
