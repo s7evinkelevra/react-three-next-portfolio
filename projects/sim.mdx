@@ -1,0 +1,20 @@
+---
+title: MHC Evolution Simulation (M.Sc.)
+date: '2022'
+tags: ['Immunology', 'Evolution', 'MHC', 'c++','openMP', 'R', 'Python', 'Cluster-Computing']
+category: "Biology"
+githubLink: https://github.com/s7evinkelevra/perftest-cpp
+publicLink: https://drive.google.com/file/d/1XXQ7DSzafJVMXgs--7MrWBanpVhkn5xt/view?usp=sharing
+---
+
+## Background
+For my master&apos;s degree, i developed a simulation model to investigate the evolution of the Major histocompatibility complex (<a href="https://en.wikipedia.org/wiki/Major_histocompatibility_complex">MHC</a>). The MHC is a group of genes that encode for proteins that are essential in the adaptive immune response, by presenting peptides derived from "self" and pathogens. They exhibit some unusual evolutionary properties, such as extreme diversity. What exactly drives these properties is still an unresolved  after decades of research. I developed the simulation model to investigate pathogen diversity as the driver of the high diversity (and other properties).
+
+## Setup
+The model has been implemented in c++17. To facilitate the high computational demands of the simulation model, resources of HUMMEL HPC cluster of the University of Hamburg and the TROODON HPC cluster of the Max Planck Institute for Evolutionary Biology were used. For both, the SLURM workload manager was used to effectively parallelize and manage the execution of the model on the HPC clusters. Internal parallelization of the program was achieved using openMP.
+Analysis and plotting was done using copious amounts of R scripts. To effectively search the parameter space, a small python script was developed to systematically generate input configurations for the model.
+
+## Result
+
+<img src="/projects/msc.png" width="100%" height="auto" />
+One of many, many figures. The entire thesis can be found <a target="_blank" href="https://drive.google.com/file/d/1XXQ7DSzafJVMXgs--7MrWBanpVhkn5xt/view?usp=sharing">here</a>.

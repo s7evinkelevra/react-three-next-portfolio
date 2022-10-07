@@ -1,12 +1,25 @@
 ---
-title: Window Product Configurator
+title: Visual Product Configurator
 date: '2020'
 tags: ['Wordpress', 'React']
 category: "React"
 publicLink: "http://fenster.luedemann2.de"
 ---
 
-## AHHH
-ha
+## Background
+Build a window ecommerce shop for a local window contractor with a configurator, similar to <a href="https://fenstermaxx24.de">fenstermaxx24.de</a> etc. Special request: generate correctly scaled sketch dynamically, similar to internal ordering software. A set of complex constraints regarding the dimensions of the windows need to be validated. This project is split in two: the react app, that generates the sketch and a ecommerce store, build with woocommerce. Both need to be tightly integrated. Here, i focus on the sketch, as the store is not public yet.
 
-<img src="/img/jan_comp.jpg" width={"100%"} height={"auto"} />
+## Setup
+- Integration into wordpress via custom plugin, loading the bundled app
+- React App
+
+## Result
+
+<img src="/projects/gifs/konfigurator_comp.gif" width={"100%"} height={"auto"} />
+<br />
+
+- All sketches completely dynamically generated svg elements
+- Memoized, >100 sketches displayable without issues
+- Client-side validation for opening directions and dimensions with arbitrary constraints
+- Transfer of the sketch into the Woocommerce order process
+- At the time of development the first configurator on the market to offer this functionality

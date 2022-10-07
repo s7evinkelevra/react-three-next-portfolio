@@ -1,0 +1,14 @@
+---
+title: Arduino Air Quality Monitor
+date: '2021'
+tags: ['Arduiuno', 'c++']
+category: "Misc"
+---
+
+## Setup
+Arduino uno combined with a temperature and relative humidity sensor (<a href="https://www.sainsmart.com/products/sainsmart-dht11-temperature-and-relative-humidity-sensor-module-for-arduino">DHT11</a>) and an air quality sensor (<a href="https://www.az-delivery.de/products/mq-135-gas-sensor-modul">MQ-135</a>). 
+
+## How it works
+The air quality sensor can measure a number of air pollutants, such as volatile organic compounds (VOCs, e.g. benzene or alcohol), as well as smoke particles. Temperature, humidty and pollutants are read with the arduino uno and displayed on an i2c OLED display. Four colored LEDs are used to display the overall "pollution" level. Values are also logged via the serial port.
+
+<img src="/projects/air_quality_comp.jpg" width="100%" height="auto" />
