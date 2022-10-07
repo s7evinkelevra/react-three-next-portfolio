@@ -11,7 +11,7 @@ import useWindowDimensions from "@/helpers/useWindowDimensions"
 
 export default function Model({ iframeSrc, ...props }) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('models/animation_5_comp.glb')
+  const { nodes, materials, animations } = useGLTF('models/animation_6_comp.glb')
   const { actions } = useAnimations(animations, group)
 
   const scroll = useStore(state => state.scroll)
@@ -19,6 +19,7 @@ export default function Model({ iframeSrc, ...props }) {
   const macbookGroup = useRef();
   const iphoneGroup = useRef();
   const hlaGroup = useRef();
+  const rocketGroup = useRef();
 
   const screenWidth = 334;
   const screenHeight = 216;
@@ -118,6 +119,14 @@ export default function Model({ iframeSrc, ...props }) {
         <group ref={hlaGroup} name="Shape_IndexedFaceSet" position={[2.34, 1.9, -26.6]} rotation={[2.15, -0.47, 3.03]} scale={0.15}>
           <mesh name="Shape_IndexedFaceSet001" geometry={nodes.Shape_IndexedFaceSet001.geometry} material={materials['hla.001']} />
           <mesh name="Shape_IndexedFaceSet001_1" geometry={nodes.Shape_IndexedFaceSet001_1.geometry} material={materials['peptide.001']} />
+        </group>
+
+        <group ref={rocketGroup} name="Rocket_Ship_01" position={[24.95, 0.42, -9.62]} rotation={[-1.69, -0.89, -2.4]} scale={0.06}>
+          <mesh name="Mesh" geometry={nodes.Mesh.geometry} material={materials['Material #27']} />
+          <mesh name="Mesh_1" geometry={nodes.Mesh_1.geometry} material={materials['Material #28']} />
+          <mesh name="Mesh_2" geometry={nodes.Mesh_2.geometry} material={materials['Material #29']} />
+          <mesh name="Mesh_3" geometry={nodes.Mesh_3.geometry} material={materials['Material #42']} />
+          <mesh name="Mesh_4" geometry={nodes.Mesh_4.geometry} material={materials['Material #30']} />
         </group>
 
         <group name="Camera" position={[11.73, 7.98, 10.98]} rotation={[1.24, 0.33, -0.76]}>
