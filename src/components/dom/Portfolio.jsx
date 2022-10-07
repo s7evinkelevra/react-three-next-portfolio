@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote'
 
 import { FaGithub } from 'react-icons/fa'
 import { AiOutlineCodepen } from 'react-icons/ai'
+import { RiExternalLinkLine } from 'react-icons/ri'
 
 import styles from './Portfolio.module.css'
 
@@ -13,10 +14,12 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 
 const Portfolio = ({ projects, currentProjectSlug }) => {
 
-  const currentProject = _.find(projects, project => project.slug === currentProjectSlug) || null;
+  const enabledProjects = _.filter(projects, project => !(project?.disabled));
+
+  const currentProject = _.find(enabledProjects, project => project.slug === currentProjectSlug) || null;
   console.log({ currentProject })
 
-  const projectsByCategory = _.groupBy(projects, "category");
+  const projectsByCategory = _.groupBy(enabledProjects, "category");
   console.log(projectsByCategory)
 
   return (
@@ -32,7 +35,9 @@ const Portfolio = ({ projects, currentProjectSlug }) => {
                   {
                     _.map(projects, (project) => (
                       <li key={project.slug} className={styles.project_item}>
-                        <Link href={`/portfolio?project=${project.slug}`}><a>{project.title}</a></Link>
+                        {project.linkOnly ?
+                          <a className={styles.external_link} target="_blank" href={project.publicLink}>{project.title}<RiExternalLinkLine /></a> :
+                          <Link href={`/portfolio?project=${project.slug}`}><a>{project.title}</a></Link>}
                       </li>
                     ))
                   }
