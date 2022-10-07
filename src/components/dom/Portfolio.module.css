@@ -38,6 +38,8 @@
   font-size: 15px;
   letter-spacing: 1.5px;
   background-color: rgba(255, 255, 255, 0.705);
+
+  overflow: auto;
 }
 
 .project_category {
