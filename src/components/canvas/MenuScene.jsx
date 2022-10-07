@@ -49,10 +49,10 @@ const MenuScene = (props) => {
   const scroll = useStore(state => state.scroll)
 
   // reset scroll on component mount
-  useEffect(() => {
-    scroll.current = 0
-    setCurrentSiteIndex(Math.floor(Math.random() * sites.length))
-  }, [])
+  /*   useEffect(() => {
+      scroll.current = 0
+      setCurrentSiteIndex(Math.floor(Math.random() * sites.length))
+    }, []) */
 
   /*   useEffect(() => {
       const timer = setInterval(() => {
