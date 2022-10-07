@@ -6,27 +6,26 @@ category: "Fullstack"
 ---
 
 ## Background
-Laboratory data from the internal laboratory and several external ones are to be standardized. Writing reports summarizing the results from the internal and external laboratory values is very time-consuming and is to be (partially) automated. The reports consist of text modules; which text module is selected sometimes depends on quite complex conditions. The reports are to be automatically filled with the current laboratory values and the correct text modules. 
+Data from an internal laboratory and several external ones are to be standardized. Writing reports summarizing the results from the internal and external laboratory values is very time-consuming and is to be (partially) automated. The reports consist of text modules; which text module is selected depends (sometimes quite complex) conditions. The reports are to be automatically filled with the current laboratory values and the correct text modules. 
 
 ## Setup
 - nodeJS + express as server
 - Connection to the Microsoft SQL database of the existing CRM software via <a rel="noreferrer" target="_blank" href="https://knexjs.org/">knex</a> to receive the master data of the patients
 - Parallel development of a seperate mySQL database for the laboratory data with <a rel="noreferrer" target="_blank" href="https://www.prisma.io/">prisma ORM</a> for nodeJS
-- Private network, no auth required
 - React App as frontend
 - Zustand for state management
 - Styling via tailwindCSS
 
 ## Components
 ### Date Ingestion
-- Interface for input of the lab data
-- Parsing of external laboratory reports (not yet implemented)
+- Interface for the manual input of the lab data
+- Parsing of external laboratory reports (mostly pdf)
 
 ### Dashboard for the Patient Data
 Dashboard to review a patients laboratory values, including historical data and an indication if the value is within the norm.
 
 ### Text modules and Conditions Editor
-Text modules and their dependencies can be defined in a graph where all patient data is available and can be examined and tested with arbitrarily definable operators. This is parsed and evaluated to determine which text module should be selected. All possible logical relationships can be mapped.
+Text modules and their dependencies can be defined in a graph where all patient data is available. There, it can be examined and tested with arbitrarily definable operators (logical operators, such as AND or OR, comparisson of numerical values). The graph is then parsed and evaluated to determine which text module should be selected. In theory, all logical expressions can be build here.
 
 <img src="/projects/gifs/conditioner_comp.gif" width="100%" height="auto" />
 <br />
