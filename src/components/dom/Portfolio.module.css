@@ -105,11 +105,18 @@
 }
 
 .meta_tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.meta_tags span {
+  margin: 0px 8px 0px 0px;
   border-bottom: 2px solid white;
 }
 
-.content_meta span {
-  margin: 5px;
+.content_meta>span {
+  margin: 0px 8px 8px 0px;
 }
 
 .mdx_wrapper {
