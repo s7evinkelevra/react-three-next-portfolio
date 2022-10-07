@@ -42,7 +42,7 @@ const Overlay = forwardRef(({ scroll }, ref) => {
 
       <Section height="100vh">
         <h1>Websites</h1>
-        The bread an butter of the operation are websites build using wordpress + page builder. The quick iteration time and large wordpress plugin ecosystem allow for efficient development. For examples, take a look <Link href="/portfolio?project=websites"><a>here</a></Link>.
+        The bread an butter of the operation are websites build using wordpress + page builder. The quick iteration time and large wordpress plugin ecosystem allow for efficient development. For examples, take a look <Link href="/portfolio?project=websites"><a>here</a></Link> or at the background :)
       </Section>
 
       <Section height="100vh">
@@ -53,6 +53,11 @@ const Overlay = forwardRef(({ scroll }, ref) => {
       <Section height="100vh">
         <h1>Simulation</h1>
         For my masters degree, i&apos;ve developed a <Link href="http://localhost:3000/portfolio?project=sim">simulation model</Link> to investigate the evolution of some highly polymorphic immune genes (MHC, see background). To meet the performance requirements, it was implemented in c++, which i also enjoyed quite a bit. For the analysis, lots of stats and plotting was done in R and python.
+      </Section>
+
+      <Section height="100vh">
+        <h1>Let&apos;s go!</h1>
+        If anything here sounds interesting or you want to get in touch, feel free to contact me at jan.luedemann@gmail.com
       </Section>
 
 
