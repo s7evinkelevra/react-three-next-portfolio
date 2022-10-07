@@ -36,7 +36,7 @@ const Portfolio = ({ projects, currentProjectSlug }) => {
                     _.map(projects, (project) => (
                       <li key={project.slug} className={styles.project_item}>
                         {project.linkOnly ?
-                          <a className={styles.external_link} target="_blank" href={project.publicLink}>{project.title}<RiExternalLinkLine /></a> :
+                          <a className={styles.external_link} target="_blank" rel="noreferrer" href={project.publicLink}>{project.title}<RiExternalLinkLine /></a> :
                           <Link href={`/portfolio?project=${project.slug}`}><a>{project.title}</a></Link>}
                       </li>
                     ))
@@ -58,8 +58,8 @@ const Portfolio = ({ projects, currentProjectSlug }) => {
               <span className={styles.meta_tags}>{currentProject?.tags?.length > 0 && currentProject.tags.map((tag) => (
                 <span key={tag}>{tag}</span>
               ))}</span>
-              {currentProject?.githubLink && <span><a target="_blank" href={currentProject.githubLink}><FaGithub /></a></span>}
-              {currentProject?.publicLink && <span><a target="_blank" href={currentProject.publicLink}><AiOutlineCodepen /></a></span>}
+              {currentProject?.githubLink && <span><a target="_blank" rel="noreferrer" href={currentProject.githubLink}><FaGithub /></a></span>}
+              {currentProject?.publicLink && <span><a target="_blank" rel="noreferrer" href={currentProject.publicLink}><AiOutlineCodepen /></a></span>}
             </div>
           </div>
           <div className={styles.mdx_wrapper}>
