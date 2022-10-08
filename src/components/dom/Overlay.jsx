@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef } from "react"
+import React, { useRef, forwardRef, useEffect } from "react"
 import Link from "next/link"
 
 import styles from './Overlay.module.css'
@@ -23,6 +23,17 @@ const Section = ({ height, children }) => {
 const Overlay = forwardRef(({ scroll }, ref) => {
   const caption = useRef();
 
+  useEffect(() => {
+    if (scroll?.current && scroll.current > 0) {
+      console.log("should scroll now")
+      console.log(window.innerHeight * scroll.current)
+      ref.current.scrollTo({
+        top: (ref.current.scrollHeight - window.innerHeight) * scroll.current,
+        behavior: "auto"
+      })
+    }
+  }, [])
+
   return (
     <div
       ref={ref}
@@ -36,7 +47,7 @@ const Overlay = forwardRef(({ scroll }, ref) => {
 
       <Section height="100vh">
         <h1>Hi, I&apos;m Jan!</h1>
-        I&apos;m a developer mostly interested in creating for the web, preferably with react. Together with my brother, i&apos;ve build a business on that, with &gt;&nbsp;30 professional projects completed since we started in 2018.
+        I&apos;m a developer interested in creating for the web, preferably with react. Together with my brother, i&apos;ve build a business on that, with &gt;&nbsp;30 professional projects completed since we started in 2018.
         <br />Scroll to take a quick tour of what i do, or see the <Link href="/portfolio"><a>portfolio</a></Link> for a comprehensive overview.
       </Section>
 
@@ -71,5 +82,4 @@ const Overlay = forwardRef(({ scroll }, ref) => {
   )
 })
 
-Overlay.displayName = "Overlay";
 export default Overlay
