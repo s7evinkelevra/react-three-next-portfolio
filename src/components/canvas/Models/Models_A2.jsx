@@ -21,9 +21,12 @@ export default function Model({ iframeSrc, ...props }) {
   const hlaGroup = useRef();
   const rocketGroup = useRef();
 
+  const rocketInitialPosition = [24.95, 0.42, -9.62]
+
   const screenWidth = 334;
   const screenHeight = 216;
   const screenScale = 0.2;
+  const screenDistanceFactor = 10;
 
   const phoneScreenWidth = 90;
   const phoneScreenHeight = 190;
@@ -44,6 +47,13 @@ export default function Model({ iframeSrc, ...props }) {
     macbookGroup.current.rotation.z = THREE.MathUtils.lerp(macbookGroup.current.rotation.z, Math.sin(t / 8) / 20, 0.1)
 
     hlaGroup.current.rotation.z += 0.0004
+
+    rocketGroup.current.position.x = (Math.random() - 0.5) * 0.05 + rocketInitialPosition[0]
+
+    rocketGroup.current.rotation.x += Math.cos((t + 1) * 2) / 1500;
+    /* rocketGroup.current.rotation.y += Math.sin((t + 1) * 2) / 1000; */
+    /*     rocketGroup.current.rotation.y += Math.sin(t) / 200;
+        rocketGroup.current.rotation.z += Math.sin(t) / 200; */
   })
 
   return (
@@ -55,7 +65,7 @@ export default function Model({ iframeSrc, ...props }) {
               <mesh name="Cube008" geometry={nodes.Cube008.geometry} material={materials.aluminium} />
               <mesh name="Cube008_1" geometry={nodes.Cube008_1.geometry} material={materials['matte.001']} />
               <mesh name="Cube008_2" geometry={nodes.Cube008_2.geometry} material={materials['screen.001']}>
-                <Html style={{ width: screenWidth, height: screenHeight }} className='overflow-hidden p-0 bg-white' rotation-x={-Math.PI / 2} position={viewportWidth < 800 ? [0, 0.2, -0.09] : [0, 0.05, -0.09]} zIndexRange={[10, 100]} transform occlude>
+                <Html style={{ width: screenWidth, height: screenHeight }} distanceFactor={screenDistanceFactor} className='overflow-hidden p-0 bg-white' rotation-x={-Math.PI / 2} position={viewportWidth < 800 ? [0, 0.2, -0.09] : [0, 0.05, -0.09]} zIndexRange={[10, 100]} transform occlude>
                   <iframe src={iframeSrc} style={{ transform: `scale(${screenScale})`, width: screenWidth / screenScale, height: screenHeight / screenScale }} className='origin-top-left'>
 
                   </iframe>
