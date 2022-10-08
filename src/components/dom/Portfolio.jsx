@@ -34,7 +34,7 @@ const Portfolio = ({ projects, currentProjectSlug }) => {
   return (
     <div className={styles.container}>
       <div className={styles.box}>
-        <div className={styles.text}>
+        <div ref={scrollToRef} className={styles.text}>
           <h1>Projects</h1>
           {
             _.map(projectsByCategory, (projects, category) => (
