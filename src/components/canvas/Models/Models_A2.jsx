@@ -48,9 +48,11 @@ export default function Model({ iframeSrc, ...props }) {
 
     hlaGroup.current.rotation.z += 0.0004
 
-    rocketGroup.current.position.x = (Math.random() - 0.5) * 0.05 + rocketInitialPosition[0]
+    /* rocketGroup.current.position.x = (Math.random() - 0.5) * 0.1 + rocketInitialPosition[0] */
 
     rocketGroup.current.rotation.x += Math.cos((t + 1) * 2) / 1500;
+    rocketGroup.current.rotation.y += Math.sin((t + 1) * 2) / 1500;
+    rocketGroup.current.rotation.z += Math.sin((t + 1) * 2) / 1500;
     /* rocketGroup.current.rotation.y += Math.sin((t + 1) * 2) / 1000; */
     /*     rocketGroup.current.rotation.y += Math.sin(t) / 200;
         rocketGroup.current.rotation.z += Math.sin(t) / 200; */
