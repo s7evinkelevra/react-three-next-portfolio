@@ -82,4 +82,5 @@ const Overlay = forwardRef(({ scroll }, ref) => {
   )
 })
 
+Overlay.displayName = "Overlay";
 export default Overlay
