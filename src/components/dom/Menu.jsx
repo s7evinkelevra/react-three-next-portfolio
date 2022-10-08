@@ -16,12 +16,16 @@ const Menu = ({ width }) => {
   return (
     <div className={styles.fixed_menu_container} style={{ width }}>
       <nav className={styles.fixed_menu}>
-        <MenuLink href="/">Home</MenuLink>
-        <MenuLink href="/portfolio">Portfolio</MenuLink>
-        <MenuLink href="/about">About Me</MenuLink>
-        {/* <MenuLink href="/impressum">Impressum</MenuLink>
-        <MenuLink href="/datenschutz">Datenschutz</MenuLink> */}
-
+        <div>
+          <MenuLink href="/">Home</MenuLink>
+          <MenuLink href="/portfolio">Portfolio</MenuLink>
+          <MenuLink href="/about">About Me</MenuLink>
+        </div>
+        <div className={styles.fixed_menu_legal}>
+          <MenuLink href="/credits">Model + Image Credits</MenuLink>
+          <MenuLink href="/impressum">Impressum</MenuLink>
+          <MenuLink href="/datenschutz">Datenschutz</MenuLink>
+        </div>
       </nav>
     </div>
 
