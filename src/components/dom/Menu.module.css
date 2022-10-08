@@ -49,10 +49,15 @@
   justify-content: space-around;
 }
 
+.fixed_menu>div>a {
+  width: 100%;
+  text-align: center;
+}
+
 .fixed_menu_legal {
   /*   background-color: rgba(58, 58, 58, 0.705);
   color: rgb(240, 240, 240); */
-  padding: 5px !important;
+  padding: 5px 20px !important;
   font-size: 10px;
 }
 

@@ -22,7 +22,7 @@ const Menu = ({ width }) => {
           <MenuLink href="/about">About Me</MenuLink>
         </div>
         <div className={styles.fixed_menu_legal}>
-          <MenuLink href="/credits">Model + Image Credits</MenuLink>
+          <MenuLink href="/portfolio?project=portfolio_site">Model & Icon Credits</MenuLink>
           <MenuLink href="/impressum">Impressum</MenuLink>
           <MenuLink href="/datenschutz">Datenschutz</MenuLink>
         </div>
