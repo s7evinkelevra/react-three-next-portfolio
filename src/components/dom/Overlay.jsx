@@ -25,8 +25,6 @@ const Overlay = forwardRef(({ scroll }, ref) => {
 
   useEffect(() => {
     if (scroll?.current && scroll.current > 0) {
-      console.log("should scroll now")
-      console.log(window.innerHeight * scroll.current)
       ref.current.scrollTo({
         top: (ref.current.scrollHeight - window.innerHeight) * scroll.current,
         behavior: "auto"
@@ -47,13 +45,13 @@ const Overlay = forwardRef(({ scroll }, ref) => {
 
       <Section height="100vh">
         <h1>Hi, I&apos;m Jan!</h1>
-        I&apos;m a developer interested in creating for the web, preferably with react. Together with my brother, i&apos;ve build a business on that, with &gt;&nbsp;30 professional projects completed since we started in 2018.
+        I&apos;m a developer interested in creating for the web, preferably with react. Together with my brother, i&apos;ve build a business based on that, with &gt;&nbsp;30 professional projects completed since we started in 2018.
         <br />Scroll to take a quick tour of what i do, or see the <Link href="/portfolio"><a>portfolio</a></Link> for a comprehensive overview.
       </Section>
 
       <Section height="100vh">
         <h1>Websites</h1>
-        The bread an butter of the operation are websites build using wordpress + page builder. The quick iteration time and large wordpress plugin ecosystem allow for efficient development. For examples, take a look <Link href="/portfolio?project=websites"><a>here</a></Link> or at the background :)
+        At the core are websites build using wordpress + the divi page builder. The quick iteration time and large wordpress plugin ecosystem allow for efficient development. For examples, take a look <Link href="/portfolio?project=websites"><a>here</a></Link> or at the background :)
       </Section>
 
       <Section height="100vh">
