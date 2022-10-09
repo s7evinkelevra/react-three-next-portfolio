@@ -15,10 +15,14 @@ const Page = (props) => {
           27386 Bothel</p>
 
         <h2>Kontakt</h2>
-        <p>
-          Telefon: 01735304722<br />
-          E-Mail: jan.luedemann@gmail.com
-        </p>
+        <p>Telefon: 01735304722<br />
+          Telefax: wird nachgereicht<br />
+          E-Mail: jan.luedemann@gmail.com</p>
+
+        <h2>Redaktionell verantwortlich</h2>
+        <p>Jan L&uuml;demann<br />
+          Vor der Rodau 80<br />
+          27386 Bothel</p>
       </CenteredContainer>
       <Menu width={"600px"} />
     </>
