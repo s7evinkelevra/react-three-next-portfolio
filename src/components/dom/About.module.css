@@ -31,6 +31,8 @@
   font-size: 14px;
   letter-spacing: 1.5px;
   background-color: rgba(255, 255, 255, 0.705);
+
+  overflow: auto;
 }
 
 .text a {
@@ -44,7 +46,7 @@
 
 @media screen and (min-width: 800px) {
   .text {
-    padding: 80px;
+    padding: 80px 80px 120px 80px;
     font-size: 15px;
   }
 }
