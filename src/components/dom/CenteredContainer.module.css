@@ -1,0 +1,55 @@
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  overflow: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 1 0 300px;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin: 0px;
+  padding: 0px;
+  max-width: 600px;
+}
+
+.text {
+  height: 100%;
+  padding: 60px;
+  padding-bottom: 160px;
+  color: rgb(66, 66, 66);
+  line-height: 1.6em;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  background-color: rgba(255, 255, 255, 0.705);
+
+  overflow: auto;
+
+}
+
+.text a {
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+.text p {
+  margin-bottom: 8px;
+}
+
+@media screen and (min-width: 800px) {
+  .text {
+    padding: 80px;
+    padding-bottom: 160px;
+    font-size: 15px;
+  }
+}
