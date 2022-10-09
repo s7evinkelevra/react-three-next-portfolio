@@ -47,9 +47,9 @@
   padding: 60px;
   color: rgb(66, 66, 66);
   line-height: 1.6em;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 1.5px;
-  background-color: rgba(255, 255, 255, 0.705);
+  background-color: rgba(255, 255, 255, 0.818);
 }
 
 .section_box a {
@@ -59,7 +59,9 @@
 
 @media screen and (min-width: 800px) {
   .section_box {
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 80px;
+    font-size: 15px;
   }
 }
 
