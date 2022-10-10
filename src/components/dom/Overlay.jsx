@@ -45,8 +45,8 @@ const Overlay = forwardRef(({ scroll }, ref) => {
 
       <Section height="100vh">
         <h1>Hi, I&apos;m Jan!</h1>
-        I&apos;m a developer interested in creating for the web, preferably with react. Together with my brother, i&apos;ve build a business based on that, with &gt;&nbsp;30 professional projects completed since we started in 2018.
-        <br />Scroll to take a quick tour of what i do, or see the <Link href="/portfolio"><a>portfolio</a></Link> for a comprehensive overview.
+        I&apos;m a developer interested in creating for the web, preferably with react. Together with my brother, I&apos;ve build a business based on that, with &gt;&nbsp;30 professional projects completed since we started in 2018.
+        <br />Scroll to take a quick tour of what I do, or see the <Link href="/portfolio"><a>portfolio</a></Link> for a comprehensive overview.
       </Section>
 
       <Section height="100vh">
@@ -56,12 +56,12 @@ const Overlay = forwardRef(({ scroll }, ref) => {
 
       <Section height="100vh">
         <h1>Node + React</h1>
-        For custom products, my stack of choice is node + express for the backend, and react for anything frontend. The database largely depends on the project, i&apos;ve worked with mySQL, postgreSQL, mongoDB and, unfortunately, MSSQL. I&apos;ve had the pleasure of developing some interesting and complex applications with this stack, like <Link href="/portfolio?project=conditioner">this</Link> or <Link href="/portfolio?project=fenster_configurator">this</Link>.
+        For custom products, my stack of choice is node + express for the backend, and react for anything frontend. The database largely depends on the project, I&apos;ve worked with mySQL, postgreSQL, mongoDB and, unfortunately, MSSQL. I&apos;ve had the pleasure of developing some interesting and complex applications with this stack, like <Link href="/portfolio?project=conditioner">this</Link> or <Link href="/portfolio?project=fenster_configurator">this</Link>.
       </Section>
 
       <Section height="100vh">
         <h1>Simulation</h1>
-        For my masters degree, i&apos;ve developed a <Link href="http://localhost:3000/portfolio?project=sim">simulation model</Link> to investigate the evolution of some highly polymorphic immune genes (MHC, see background). To meet the performance requirements, it was implemented in c++, which i also enjoyed quite a bit. For the analysis, lots of stats and plotting was done in R and python.
+        For my masters degree, I&apos;ve developed a <Link href="http://localhost:3000/portfolio?project=sim">simulation model</Link> to investigate the evolution of some highly polymorphic immune genes (MHC, see background). To meet the performance requirements, it was implemented in c++, which I also enjoyed quite a bit. For the analysis, lots of stats and plotting was done in R and python.
       </Section>
 
       <Section height="100vh">
