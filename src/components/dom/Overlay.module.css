@@ -83,12 +83,14 @@
 
 @media only screen and (max-width: 1000px) {
   .caption {
+    margin: 50px;
     font-size: 4em;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .caption {
+    margin: 20px;
     font-size: 3em;
   }
 }
