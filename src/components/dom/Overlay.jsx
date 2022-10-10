@@ -45,7 +45,7 @@ const Overlay = forwardRef(({ scroll }, ref) => {
 
       <Section height="100vh">
         <h1>Hi, I&apos;m Jan!</h1>
-        I&apos;m a developer interested in creating for the web, preferably with react. Together with my brother, I&apos;ve build a business based on that, with &gt;&nbsp;30 professional projects completed since we started in 2018.
+        I&apos;m a developer interested in creating for the web, preferably with react. Together with my brother, I&apos;ve built a business based on that, with &gt;&nbsp;30 professional projects completed since we started in 2018.
         <br />Scroll to take a quick tour of what I do, or see the <Link href="/portfolio"><a>portfolio</a></Link> for a comprehensive overview.
       </Section>
 
