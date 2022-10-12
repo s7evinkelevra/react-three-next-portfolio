@@ -6,6 +6,7 @@ import * as THREE from "three"
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations, PerspectiveCamera, Html } from '@react-three/drei'
 import { useFrame, useThree } from "@react-three/fiber"
+import { isIOS } from "react-device-detect"
 import useStore from "@/helpers/store"
 import useWindowDimensions from "@/helpers/useWindowDimensions"
 
@@ -67,7 +68,7 @@ export default function Model({ iframeSrc, ...props }) {
               <mesh name="Cube008" geometry={nodes.Cube008.geometry} material={materials.aluminium} />
               <mesh name="Cube008_1" geometry={nodes.Cube008_1.geometry} material={materials['matte.001']} />
               <mesh name="Cube008_2" geometry={nodes.Cube008_2.geometry} material={materials['screen.001']}>
-                <Html style={{ width: screenWidth, height: screenHeight }} distanceFactor={screenDistanceFactor} className='overflow-hidden p-0 bg-white' rotation-x={-Math.PI / 2} position={viewportWidth < 800 ? [0, 0.2, -0.09] : [0, 0.05, -0.09]} zIndexRange={[10, 100]} transform occlude>
+                <Html style={{ width: screenWidth, height: screenHeight }} distanceFactor={screenDistanceFactor} className='overflow-hidden p-0 bg-white' rotation-x={-Math.PI / 2} position={isIOS ? [0, 0.2, -0.09] : [0, 0.05, -0.09]} zIndexRange={[10, 100]} transform occlude>
                   <iframe src={iframeSrc} style={{ transform: `scale(${screenScale})`, width: screenWidth / screenScale, height: screenHeight / screenScale }} className='origin-top-left'>
 
                   </iframe>
@@ -97,7 +98,7 @@ export default function Model({ iframeSrc, ...props }) {
             <mesh name="Plane002_2" geometry={nodes.Plane002_2.geometry} material={materials.Bezel} />
             <mesh name="Plane002_3" geometry={nodes.Plane002_3.geometry} material={materials.Wallpaper} />
             <mesh name="Plane002_4" geometry={nodes.Plane002_4.geometry} material={materials['Camera Glass']}>
-              <Html style={{ width: phoneScreenWidth, height: phoneScreenHeight }} className='overflow-hidden p-0 ' distanceFactor={phoneDistanceFactor} rotation-y={-Math.PI} rotation-x={-Math.PI / 2} position={viewportWidth < 800 ? [0.09, -0.02526, -0.005] : [0, -0.02526, 0]} zIndexRange={[10, 100]} transform occlude >
+              <Html style={{ width: phoneScreenWidth, height: phoneScreenHeight }} className='overflow-hidden p-0 ' distanceFactor={phoneDistanceFactor} rotation-y={-Math.PI} rotation-x={-Math.PI / 2} position={isIOS ? [0.09, -0.02526, -0.005] : [0, -0.02526, 0]} zIndexRange={[10, 100]} transform occlude >
                 <iframe src={iframeSrc} style={{ transform: `scale(${phoneScreenScale})`, borderRadius: "40px", width: phoneScreenWidth / phoneScreenScale, height: phoneScreenHeight / phoneScreenScale }} className='origin-top-left'>
 
                 </iframe>
