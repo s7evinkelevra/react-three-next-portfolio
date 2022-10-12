@@ -32,11 +32,11 @@ const sites = [
       url: "http://bwkz2f.myraidbox.de/product/iglo-5-classic/",
       letter: "F"
     }, */
-  {
-    name: "Dr. med. Dirk Wiechert",
-    url: "https://dr-wiechert.com/",
-    letter: "D"
-  },
+  /*   {
+      name: "Dr. med. Dirk Wiechert",
+      url: "https://dr-wiechert.com/",
+      letter: "D"
+    }, */
   {
     name: "QMB Glasmachers",
     url: "https://qmb-dienstleistungen.de/",
@@ -48,12 +48,12 @@ const MenuScene = (props) => {
   const [currentSiteIndex, setCurrentSiteIndex] = useState(1)
   const scroll = useStore(state => state.scroll)
 
-  // reset scroll on component mount
-  /*   useEffect(() => {
-      scroll.current = 0
-      setCurrentSiteIndex(Math.floor(Math.random() * sites.length))
-    }, []) */
+  useEffect(() => {
+    scroll.current = 0
+    setCurrentSiteIndex(Math.floor(Math.random() * sites.length))
+  }, [])
 
+  // reset scroll on component mount
   /*   useEffect(() => {
       const timer = setInterval(() => {
         setCurrentSiteIndex(prevIndex => (prevIndex + 1) % (sites.length - 1))
