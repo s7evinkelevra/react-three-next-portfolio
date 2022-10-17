@@ -61,7 +61,7 @@ const Overlay = forwardRef(({ scroll }, ref) => {
 
       <Section height="100vh">
         <h1>Simulation</h1>
-        For my masters degree, I&apos;ve developed a <Link href="http://localhost:3000/portfolio?project=sim">simulation model</Link> to investigate the evolution of some highly polymorphic immune genes (MHC, see background). To meet the performance requirements, it was implemented in c++, which I also enjoyed quite a bit. For the analysis, lots of stats and plotting was done in R and python.
+        For my masters degree, I&apos;ve developed a <Link href="/portfolio?project=sim">simulation model</Link> to investigate the evolution of some highly polymorphic immune genes (MHC, see background). To meet the performance requirements, it was implemented in c++, which I also enjoyed quite a bit. For the analysis, lots of stats and plotting was done in R and python.
       </Section>
 
       <Section height="100vh">
