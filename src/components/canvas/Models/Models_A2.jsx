@@ -165,4 +165,4 @@ export default function Model({ iframeSrc, ...props }) {
   )
 }
 
-useGLTF.preload('/animation_4_comp.glb')
+useGLTF.preload('models/animation_6_comp.glb')
