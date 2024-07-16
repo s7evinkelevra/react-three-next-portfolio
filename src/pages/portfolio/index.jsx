@@ -10,15 +10,13 @@ import matter from 'gray-matter'
 
 import Portfolio from '@/components/dom/Portfolio';
 import { useRouter } from 'next/router';
+import { getPageTitle } from '@/helpers/pageTitle';
 
 
 // dom components goes here
 const Page = ({ projects }) => {
   const { query } = useRouter();
   const currentProjectSlug = query?.project || null
-
-  console.log({ projects })
-  console.log(currentProjectSlug)
 
   return (
     <>
@@ -73,7 +71,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      title: 'Portfolio',
+      title: getPageTitle('Portfolio'),
       projects
     },
   }

@@ -1,5 +1,6 @@
 import Menu from '@/components/dom/Menu';
 import CenteredContainer from '@/components/dom/CenteredContainer';
+import { getPageTitle } from '@/helpers/pageTitle';
 
 // dom components goes here
 const Page = (props) => {
@@ -62,7 +63,7 @@ export default Page
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Datenschutz',
+      title: getPageTitle('Datenschutz'),
     },
   }
 }

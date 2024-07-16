@@ -1,5 +1,6 @@
 import About from '@/components/dom/About';
 import Menu from '@/components/dom/Menu';
+import { getPageTitle } from '@/helpers/pageTitle';
 
 
 // dom components goes here
@@ -30,7 +31,7 @@ export default Page
 export async function getStaticProps() {
   return {
     props: {
-      title: 'About Me',
+      title: getPageTitle('About Me'),
     },
   }
 }

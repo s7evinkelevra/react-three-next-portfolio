@@ -4,6 +4,8 @@ import dynamic from 'next/dynamic'
 import Overlay from '@/components/dom/Overlay';
 import useStore from "@/helpers/store"
 
+import { getPageTitle } from '@/helpers/pageTitle';
+
 
 /* 
 const Shader = dynamic(() => import('@/components/canvas/Shader/Shader'), {
@@ -45,7 +47,7 @@ export default Page
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Home',
+      title: getPageTitle('Home'),
     },
   }
 }

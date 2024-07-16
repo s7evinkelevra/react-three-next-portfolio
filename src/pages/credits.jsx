@@ -1,4 +1,5 @@
 import Menu from '@/components/dom/Menu';
+import { getPageTitle } from '@/helpers/pageTitle';
 
 
 // dom components goes here
@@ -27,7 +28,7 @@ export default Page
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Credits',
+      title: getPageTitle('Credits'),
     },
   }
 }
