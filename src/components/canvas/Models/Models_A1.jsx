@@ -19,7 +19,6 @@ function Models_A1(props) {
 
   const { width: viewportWidth } = useWindowDimensions();
 
-  console.log(actions["CameraAction"]);
   useEffect(() => void (actions["CameraAction"].play().paused = true), [])
 
   useFrame((state) => {
@@ -40,9 +39,6 @@ function Models_A1(props) {
   const phoneModelScale = 0.04;
   const phoneScreenScale = 5.7;
 
-  console.log(viewportWidth)
-  console.log(macbookGroup.current?.scale)
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -52,7 +48,7 @@ function Models_A1(props) {
               <mesh name="Cube008" geometry={nodes.Cube008.geometry} material={materials.aluminium} />
               <mesh name="Cube008_1" geometry={nodes.Cube008_1.geometry} material={materials['matte.001']} />
               <mesh name="Cube008_2" geometry={nodes.Cube008_2.geometry} material={materials['screen.001']}>
-                <Html style={{ width: screenWidth, height: screenHeight }} className='overflow-hidden p-0 bg-white' rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} /* zIndexRange={[-1000, -100]} */ transform occlude>
+                <Html style={{ width: screenWidth, height: screenHeight }} className='p-0 overflow-hidden bg-white' rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} /* zIndexRange={[-1000, -100]} */ transform occlude>
                   <iframe src="https://luedemann2.de/" style={{ transform: `scale(${screenScale})`, width: screenWidth / screenScale, height: screenHeight / screenScale }} className='origin-top-left'>
 
                   </iframe>
@@ -79,7 +75,7 @@ function Models_A1(props) {
           <mesh name="Object_24" geometry={nodes.Object_24.geometry} material={materials.Lenscover} />
           <mesh name="Object_25" geometry={nodes.Object_25.geometry} material={materials.material} />
           <mesh name="Object_26" geometry={nodes.Object_26.geometry} material={materials.Display}>
-            <Html style={{ width: phoneScreenWidth / phoneModelScale, height: phoneScreenHeight / phoneModelScale }} className='overflow-hidden p-0 ' rotation-y={Math.PI / 2} position={[4.74, -33, 6]} transform occlude >
+            <Html style={{ width: phoneScreenWidth / phoneModelScale, height: phoneScreenHeight / phoneModelScale }} className='p-0 overflow-hidden' rotation-y={Math.PI / 2} position={[4.74, -33, 6]} transform occlude >
               <iframe src="https://luedemann2.de/" style={{ transform: `scale(${4.5})`, borderRadius: "60px 70px 100px 80px", width: phoneScreenWidth * phoneScreenScale, height: phoneScreenHeight * phoneScreenScale }} className='origin-top-left'>
 
               </iframe>

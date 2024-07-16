@@ -26,10 +26,8 @@ const Portfolio = ({ projects, currentProjectSlug }) => {
   const enabledProjects = _.filter(projects, project => !(project?.disabled));
 
   const currentProject = _.find(enabledProjects, project => project.slug === currentProjectSlug) || null;
-  console.log({ currentProject })
 
   const projectsByCategory = _.groupBy(enabledProjects, "category");
-  console.log(projectsByCategory)
 
   return (
     <div className={styles.container}>
